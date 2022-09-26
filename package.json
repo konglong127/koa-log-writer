@@ -1,13 +1,19 @@
 {
   "name": "koa-log-writer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "koa logging and print HTTP request middleware.",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
   "author": "konglong127",
+  "keywords": [
+    "koa",
+    "log",
+    "logger",
+    "middleware",
+    "logging"
+  ],
   "license": "ISC",
   "dependencies": {
     "@types/koa": "^2.13.5",
