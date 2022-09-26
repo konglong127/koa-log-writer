@@ -1,0 +1,17 @@
+{
+  "name": "koa-log-writer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/koa": "^2.13.5",
+    "chalk": "^4.1.2",
+    "koa": "^2.13.4"
+  }
+}
