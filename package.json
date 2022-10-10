@@ -6,6 +6,16 @@
   "scripts": {
     "test": "mocha"
   },
+  "mocha": {
+    "require": [
+      "ts-node/register"
+    ],
+    "ui": "bdd"
+  },
+  "extends": "./tsconfig.json",
+  "ts-node": {
+    "transpileOnly": true
+  },
   "author": "konglong127",
   "keywords": [
     "koa",
@@ -17,6 +27,8 @@
   "license": "ISC",
   "dependencies": {
     "@types/koa": "^2.13.5",
+    "@types/node": "^18.8.3",
+    "@types/supertest": "^2.0.12",
     "boom": "^7.3.0",
     "chalk": "^4.1.2",
     "humanize-number": "0.0.2",
@@ -24,9 +36,15 @@
     "koa-route": "^3.2.0",
     "koa-router": "^12.0.0",
     "object-sizeof": "^1.6.3",
-    "supertest": "^6.3.0"
+    "supertest": "^6.3.0",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.1.0",
+    "typescript": "^4.8.4"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/jest": "^29.1.2",
+    "@types/mocha": "^10.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/konglong127/koa-log-writer.git"

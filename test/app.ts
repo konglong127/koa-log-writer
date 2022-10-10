@@ -41,6 +41,8 @@ app.use(async (ctx, next) => {
   await next();
 });
 
-app.listen(8080, () => {
-  console.log('127.0.0.1:8080');
-});
+// app.listen(8080, () => {
+//   console.log('127.0.0.1:8080');
+// });
+
+export default app;
