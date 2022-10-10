@@ -27,14 +27,14 @@ function logger(opts) {
     if (!fs.existsSync(logPath)) {
       fs.mkdirSync(logPath);
     }
-    
+
     ctx.log = new writerLogger({ logPath, logSize });
     //ctx.sizeof=sizeof;
-    
+
     if (print) {
       const start = ctx[Symbol.for('request-received.startTime')] ?
-      ctx[Symbol.for('request-received.startTime')].getTime() :
-      Date.now();
+        ctx[Symbol.for('request-received.startTime')].getTime() :
+        Date.now();
 
       const size = sizeof(ctx.request.params)
         + sizeof(ctx.request.body) + sizeof(ctx.request.query);
@@ -64,10 +64,10 @@ function logger(opts) {
 
         throw err;
       }
-    }else{
+    } else {
       await next();
     }
-    
+
 
   }
 }
@@ -82,10 +82,8 @@ function ResponseLogPrint(ctx, start, size, err) {
 
   const color = colorCodes.hasOwnProperty(s) ? colorCodes[s] : colorCodes[0];
 
-  if (~[204, 205, 304].indexOf(status)) {
-    size = ''
-  } else if (size == null) {
-    size = '-';
+  if (~[204, 205, 304].indexOf(status) || size == null) {
+    size = '0';
   }
 
   const upstream = err ? chalk.red('xxx')

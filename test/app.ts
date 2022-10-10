@@ -1,5 +1,5 @@
 import koa from 'koa';
-import wlog from './index';
+import wlog from '../index';
 const app = new koa();
 
 app.use(wlog({
