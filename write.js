@@ -9,8 +9,8 @@ class WriteFileLogger {
   done(dirs, type, info) {
     const writeFilePath = `${this.logPath}/${type}/${type}`;
     //console.log(`${writeFilePath}${dirs.length}.log`);
-    let stat=fs.statSync(`${writeFilePath}${dirs.length}.log`, 'utf-8');
-      
+    let stat = fs.statSync(`${writeFilePath}${dirs.length}.log`, 'utf-8');
+
     if (stat.size < this.logSize) {
       // one
       // let data=fs.readFileSync(`${writeFilePath}${dirs.length}.log`, 'utf-8');
@@ -18,12 +18,16 @@ class WriteFileLogger {
       // two
       // fs.appendFileSync(`${writeFilePath}${dirs.length}.log`, info, 'utf-8');
       // three
-      const ws=fs.createWriteStream(`${writeFilePath}${dirs.length}.log` ,{ 'flags': 'a' });
+      const ws = fs.createWriteStream(`${writeFilePath}${dirs.length}.log`, { 'flags': 'a' });
       ws.write(info);
       ws.end();
 
     } else {
-      fs.writeFileSync(`${writeFilePath}${dirs.length + 1}.log`, info);
+      // fs.writeFileSync(`${writeFilePath}${dirs.length + 1}.log`, info);
+
+      const ws = fs.createWriteStream(`${writeFilePath}${dirs.length + 1}.log`, { 'flags': 'a' });
+      ws.write(info);
+      ws.end();
     }
 
   }
