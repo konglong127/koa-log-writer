@@ -12,9 +12,16 @@ class WriteFileLogger {
     let stat=fs.statSync(`${writeFilePath}${dirs.length}.log`, 'utf-8');
       
     if (stat.size < this.logSize) {
-      let data=fs.readFileSync(`${writeFilePath}${dirs.length}.log`, 'utf-8');
-      data += info;
-      fs.writeFileSync(`${writeFilePath}${dirs.length}.log`, data, 'utf-8');
+      // one
+      // let data=fs.readFileSync(`${writeFilePath}${dirs.length}.log`, 'utf-8');
+      // data += info;
+      // two
+      // fs.appendFileSync(`${writeFilePath}${dirs.length}.log`, info, 'utf-8');
+      // three
+      const ws=fs.createWriteStream(`${writeFilePath}${dirs.length}.log` ,{ 'flags': 'a' });
+      ws.write(info);
+      ws.end();
+
     } else {
       fs.writeFileSync(`${writeFilePath}${dirs.length + 1}.log`, info);
     }
