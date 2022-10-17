@@ -4,7 +4,8 @@
   "description": "koa logging and print HTTP request middleware.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "eslint": "./node_modules/.bin/eslint *"
   },
   "mocha": {
     "require": [
@@ -43,7 +44,8 @@
   },
   "devDependencies": {
     "@types/jest": "^29.1.2",
-    "@types/mocha": "^10.0.0"
+    "@types/mocha": "^10.0.0",
+    "eslint": "^8.25.0"
   },
   "repository": {
     "type": "git",

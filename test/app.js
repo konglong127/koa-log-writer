@@ -39,7 +39,16 @@ app.use(
 
 app.use(
   router.get('/error', function (ctx) {
-    throw new Error('oh no');
+    try{
+      throw new Error('oh no');
+    }catch(error){
+      ctx.log.write({
+        type: 'error',
+        info: error
+      });
+      ctx.repsonse.body='500';
+    }
+    
   })
 );
 

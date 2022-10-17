@@ -61,26 +61,21 @@ class WriteFileLogger {
 
   write(opts) {
 
-    try{
-      const { type, info } = opts
-      //获取路径
-      let dirs = this.getFileDirs(type);
+    const { type, info } = opts
+    //获取路径
+    let dirs = this.getFileDirs(type);
 
-      //判断是否有文件
-      if (dirs.length == 0) {
-        fs.writeFileSync(`${this.logPath}/${type}/${type}1.log`, '');
-        dirs.push(`${type}1.log`);
-      } else {
-        //查看记录到了哪里
-        dirs = this.quickSort(dirs, type);
-      }
-
-      //console.log(dirs);
-      this.done(dirs, type, info);
-
-    }catch(err){
-      throw err;
+    //判断是否有文件
+    if (dirs.length == 0) {
+      fs.writeFileSync(`${this.logPath}/${type}/${type}1.log`, '');
+      dirs.push(`${type}1.log`);
+    } else {
+      //查看记录到了哪里
+      dirs = this.quickSort(dirs, type);
     }
+
+    //console.log(dirs);
+    this.done(dirs, type, info);
 
   }
 
