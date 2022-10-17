@@ -7,7 +7,7 @@ module.exports = {
     "extends": "eslint:recommended",
     "overrides": [
         {
-            "files": ["./test/*.js","*.js"],
+            "files": ["./test/*.js", "*.js","*.ts", "./test/ts"]
         }
     ],
     "parserOptions": {

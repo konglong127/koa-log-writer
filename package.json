@@ -4,7 +4,8 @@
   "description": "koa logging and print HTTP request middleware.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
+    "test1": "mocha ./test/test.js",
+    "test2": "mocha ./test/test.ts",
     "eslint": "./node_modules/.bin/eslint *"
   },
   "mocha": {
@@ -30,6 +31,8 @@
     "@types/koa": "^2.13.5",
     "@types/node": "^18.8.3",
     "@types/supertest": "^2.0.12",
+    "@typescript-eslint/parser": "^5.40.0",
+    "babel-eslint": "^10.1.0",
     "boom": "^7.3.0",
     "chalk": "^4.1.2",
     "humanize-number": "0.0.2",
@@ -45,7 +48,11 @@
   "devDependencies": {
     "@types/jest": "^29.1.2",
     "@types/mocha": "^10.0.0",
-    "eslint": "^8.25.0"
+    "@typescript-eslint/eslint-plugin": "^5.40.0",
+    "eslint": "^8.25.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.1.0"
   },
   "repository": {
     "type": "git",
@@ -54,5 +61,9 @@
   "bugs": {
     "url": "https://github.com/konglong127/koa-log-writer/issues"
   },
-  "homepage": "https://github.com/konglong127/koa-log-writer#readme"
+  "homepage": "https://github.com/konglong127/koa-log-writer#readme",
+  "eslintConfig": {
+    "extends": "airbnb-base",
+    "parser": "babel-eslint"
+  }
 }

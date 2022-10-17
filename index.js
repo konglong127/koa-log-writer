@@ -80,7 +80,8 @@ function ResponseLogPrint(ctx, start, size, err) {
 
   const s = status / 100 | 0;
 
-  const color = colorCodes.hasOwnProperty(s) ? colorCodes[s] : colorCodes[0];
+  // const color = colorCodes.hasOwnProperty(s) ? colorCodes[s] : colorCodes[0];
+  const color = colorCodes[s] !== undefined ? colorCodes[s] : colorCodes[0];
 
   if (~[204, 205, 304].indexOf(status) || size == null) {
     size = '0';
