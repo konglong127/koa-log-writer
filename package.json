@@ -4,8 +4,8 @@
   "description": "koa logging and print HTTP request middleware.",
   "main": "index.js",
   "scripts": {
-    "test1": "mocha ./test/test.js",
-    "test2": "mocha ./test/test.ts",
+    "test1": "mocha ./test/test.spec.js",
+    "test2": "mocha ./test/test.spec.ts",
     "eslint": "./node_modules/.bin/eslint *"
   },
   "mocha": {
@@ -28,22 +28,9 @@
   ],
   "license": "ISC",
   "dependencies": {
-    "@types/koa": "^2.13.5",
-    "@types/node": "^18.8.3",
-    "@types/supertest": "^2.0.12",
-    "@typescript-eslint/parser": "^5.40.0",
-    "babel-eslint": "^10.1.0",
-    "boom": "^7.3.0",
     "chalk": "^4.1.2",
     "humanize-number": "0.0.2",
-    "koa": "^2.13.4",
-    "koa-route": "^3.2.0",
-    "koa-router": "^12.0.0",
-    "object-sizeof": "^1.6.3",
-    "supertest": "^6.3.0",
-    "ts-node": "^10.9.1",
-    "tsconfig-paths": "^4.1.0",
-    "typescript": "^4.8.4"
+    "object-sizeof": "^1.6.3"
   },
   "devDependencies": {
     "@types/jest": "^29.1.2",
@@ -52,7 +39,20 @@
     "eslint": "^8.25.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^6.1.0"
+    "eslint-plugin-promise": "^6.1.0",
+    "@types/koa": "^2.13.5",
+    "@types/node": "^18.8.3",
+    "@types/supertest": "^2.0.12",
+    "@typescript-eslint/parser": "^5.40.0",
+    "babel-eslint": "^10.1.0",
+    "boom": "^7.3.0",
+    "koa": "^2.13.4",
+    "koa-route": "^3.2.0",
+    "koa-router": "^12.0.0",
+    "supertest": "^6.3.0",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.1.0",
+    "typescript": "^4.8.4"
   },
   "repository": {
     "type": "git",
