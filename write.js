@@ -16,18 +16,18 @@ class WriteFileLogger {
       // let data=fs.readFileSync(`${writeFilePath}${dirs.length}.log`, 'utf-8');
       // data += info;
       // two
-      // fs.appendFileSync(`${writeFilePath}${dirs.length}.log`, info, 'utf-8');
+      fs.appendFileSync(`${writeFilePath}${dirs.length}.log`, info, 'utf-8');
       // three
-      const ws = fs.createWriteStream(`${writeFilePath}${dirs.length}.log`, { 'flags': 'a' });
-      ws.write(info);
-      ws.end();
+      // const ws = fs.createWriteStream(`${writeFilePath}${dirs.length}.log`, { 'flags': 'a' });
+      // ws.write(info);
+      // ws.end();
 
     } else {
-      // fs.writeFileSync(`${writeFilePath}${dirs.length + 1}.log`, info);
+      fs.writeFileSync(`${writeFilePath}${dirs.length + 1}.log`, info);
 
-      const ws = fs.createWriteStream(`${writeFilePath}${dirs.length + 1}.log`, { 'flags': 'a' });
-      ws.write(info);
-      ws.end();
+      // const ws = fs.createWriteStream(`${writeFilePath}${dirs.length + 1}.log`, { 'flags': 'a' });
+      // ws.write(info);
+      // ws.end();
     }
 
   }

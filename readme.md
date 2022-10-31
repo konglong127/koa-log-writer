@@ -1,6 +1,6 @@
 # koa-log-writer
 
-koa logging and print HTTP request middleware.
+Writing and printing middleware for koa.
 
 # Install
 
