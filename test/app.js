@@ -55,21 +55,19 @@ app.use(
 app.use(async (ctx, next) => {
   ctx.log.write({
     type: 'query',
-    info: `1111111111111111111111111111\n`
+    info: `pass\n`
   });
 
   await next();
 });
 
 app.use(async (ctx, next) => {
-  ctx.log.write({
-    type: 'query',
-    info: `22222222222222222222222222\n`
-  });
-  ctx.log.write({
-    type: 'query',
-    info: `33333333333333333333333333\n`
-  });
+  for(let i=0;i<=999;++i){
+    ctx.log.write({
+      type: 'query',
+      info: `${i}${i}${i}${i}${i}${i}${i}${i}${i}${i}${i}${i}${i}${i}${i}${i}\n`
+    });
+  }
   await next();
 });
 
