@@ -58,9 +58,10 @@ app.listen(8080, () => {
 
 ```
 app.use(wlog({
-  print:true,		//Output or not
-  logPath:'./log',	//log path
-  logSize:50340		//log file size
+  print:true,		//Output or not, default true
+  logPath:'./log',	//log path, default './log'
+  logSize:51200,	//log file size, default 51200
+  extension:'txt'	//file extension, default log
 }));
 
 ```
@@ -68,7 +69,7 @@ app.use(wlog({
 # Output
 
 ```
- <-- GET 127.0.0.1:8080/ 0b
+  <-- GET 127.0.0.1:8080/ 0b
   --> GET 127.0.0.1:8080/ 200 9ms 4b
   <-- GET 127.0.0.1:8080/favicon.ico 0b
   --> GET 127.0.0.1:8080/favicon.ico 200 3ms 12b

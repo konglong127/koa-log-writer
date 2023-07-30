@@ -4,26 +4,27 @@ class WriteFileLogger {
   constructor(opts) {
     this.logPath = opts.logPath;
     this.logSize = opts.logSize;
+    this.extension = opts.extension;
   }
 
   done(dirs, type, info) {
     const writeFilePath = `${this.logPath}/${type}/${type}`;
     //console.log(`${writeFilePath}${dirs.length}.log`);
-    let stat = fs.statSync(`${writeFilePath}${dirs.length}.log`, 'utf-8');
+    let stat = fs.statSync(`${writeFilePath}${dirs.length}.${this.extension}`, 'utf-8');
 
     if (stat.size < this.logSize) {
       // one
       // let data=fs.readFileSync(`${writeFilePath}${dirs.length}.log`, 'utf-8');
       // data += info;
       // two
-      fs.appendFileSync(`${writeFilePath}${dirs.length}.log`, info, 'utf-8');
+      fs.appendFileSync(`${writeFilePath}${dirs.length}.${this.extension}`, info, 'utf-8');
       // three
       // const ws = fs.createWriteStream(`${writeFilePath}${dirs.length}.log`, { 'flags': 'a' });
       // ws.write(info);
       // ws.end();
 
     } else {
-      fs.writeFileSync(`${writeFilePath}${dirs.length + 1}.log`, info);
+      fs.writeFileSync(`${writeFilePath}${dirs.length + 1}.${this.extension}`, info);
 
       // const ws = fs.createWriteStream(`${writeFilePath}${dirs.length + 1}.log`, { 'flags': 'a' });
       // ws.write(info);
@@ -65,7 +66,7 @@ class WriteFileLogger {
       throw `${this.logPath} path error`;
     }
 
-    dirs = dirs.filter(item => item.startsWith(type) && item.endsWith('.log'));
+    dirs = dirs.filter(item => item.startsWith(type) && item.endsWith(`.${this.extension}`));
 
     return dirs;
   }
@@ -73,15 +74,15 @@ class WriteFileLogger {
   write(opts) {
 
     const { type, info } = opts
-    //获取路径
+    // get file dir return array
     let dirs = this.getFileDirs(type);
 
-    //判断是否有文件
+    // check whether there are files in folder
     if (dirs.length == 0) {
-      fs.writeFileSync(`${this.logPath}/${type}/${type}1.log`, '');
-      dirs.push(`${type}1.log`);
+      fs.writeFileSync(`${this.logPath}/${type}/${type}1.${this.extension}`, '');
+      dirs.push(`${type}1.${this.extension}`);
     } else {
-      //查看记录到了哪里
+      // reorder files
       dirs = this.quickSort(dirs, type);
     }
 

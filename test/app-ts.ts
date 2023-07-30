@@ -1,14 +1,9 @@
-const koa = require('koa');
+import koa from 'koa';
+import wlog from '../index';
+import router from 'koa-route';
 const app = new koa();
-const wlog = require('../index');
-const router = require('koa-route');
 
-app.use(wlog({
-  print: true,		//Output or not, default true
-  logPath: './log',	//log path, default './log'
-  logSize: 102400,		//log file size, default 51200
-  extension: 'txt'
-}));
+app.use(wlog());
 
 app.use(
   router.get('/200', function (ctx) {
@@ -92,9 +87,8 @@ app.use(async (ctx, next) => {
   }
   await next();
 });
-
-
-module.exports = app;
 // app.listen(8080, () => {
 //   console.log('127.0.0.1:8080');
 // });
+
+export default app;

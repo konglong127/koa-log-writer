@@ -10,6 +10,8 @@ declare namespace KoaLogWriter {
 
     logSize?: number;
 
+    extension?: string;
+
     log?: (x: string) => void;
   }
 

@@ -18,9 +18,10 @@ function logger(opts) {
   opts = opts || {};
   opts.print = 'print' in opts ? opts.print : true;
   opts.logPath = 'logPath' in opts ? opts.logPath : './log';
-  opts.logSize = 'logSize' in opts ? opts.logSize : 50430;
+  opts.logSize = 'logSize' in opts ? opts.logSize : 51200;
   opts.log = 'log' in opts ? opts.log : false;
-  const { print, logPath, logSize, log } = opts;
+  opts.extension = 'extension' in opts ? opts.extension : 'log';
+  const { print, logPath, logSize, log, extension } = opts;
 
   return async function (ctx, next) {
 
@@ -28,7 +29,7 @@ function logger(opts) {
       fs.mkdirSync(logPath);
     }
 
-    ctx.log = new writerLogger({ logPath, logSize });
+    ctx.log = new writerLogger({ logPath, logSize, extension });
     //ctx.sizeof=sizeof;
 
     if (print) {
