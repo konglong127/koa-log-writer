@@ -11,10 +11,16 @@ declare namespace KoaLogWriter {
     logSize?: number;
 
     extension?: string;
-
-    log?: (x: string) => void;
   }
 
+}
+
+declare module 'koa' {
+  interface Context {
+    log: {
+      write: (params: { type: string, info: string, filename?: string, content?: string }) => void;
+    };
+  }
 }
 
 declare function KoaLogWriter(options?: KoaLogWriter.KoaLogWriterOptions): Koa.Middleware<{}, {}>;

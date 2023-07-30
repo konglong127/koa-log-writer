@@ -19,21 +19,16 @@ app.use(wlog());
 
 app.use(async (ctx, next) => {
   ctx.log.write({
-    type: 'query',
-    info: `1111111111111111111111111111\n`
+    filename: 'query',
+    content: `${JSON.stringify(ctx.request)}\n`
   });
-
   await next();
 });
 
 app.use(async (ctx, next) => {
   ctx.log.write({
-    type: 'query',
-    info: `22222222222222222222222222\n`
-  });
-  ctx.log.write({
-    type: 'query',
-    info: `33333333333333333333333333\n`
+    filename: 'api',
+    content: `${JSON.stringify(ctx.request)}\n`
   });
   await next();
 });

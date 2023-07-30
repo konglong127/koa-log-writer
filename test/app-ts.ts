@@ -44,7 +44,7 @@ app.use(
     } catch (error) {
       ctx.log.write({
         type: 'error',
-        info: error
+        info: String(error)
       });
       ctx.repsonse.body = '500';
     }
@@ -54,8 +54,8 @@ app.use(
 
 app.use(async (ctx, next) => {
   ctx.log.write({
-    type: 'query',
-    info: `pass\n`
+    filename: 'query',
+    content: `pass\n`
   });
 
   await next();

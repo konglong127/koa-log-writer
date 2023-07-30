@@ -69,8 +69,8 @@ app.use(async (ctx, next) => {
 app.use(async (ctx, next) => {
   for (let i = 0; i < 3000; ++i) {
     ctx.log.write({
-      type: 'query',
-      info: `${JSON.stringify(ctx.request)}\n`
+      filename: 'query',
+      content: `${JSON.stringify(ctx.request)}\n`
     });
   }
   await next();

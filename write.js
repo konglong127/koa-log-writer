@@ -73,7 +73,11 @@ class WriteFileLogger {
 
   write(opts) {
 
-    const { type, info } = opts
+    let { type, info, filename, content } = opts;
+
+    if (filename) type = filename;
+    if (content) info = content;
+
     // get file dir return array
     let dirs = this.getFileDirs(type);
 
